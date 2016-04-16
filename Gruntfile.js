@@ -1,20 +1,13 @@
 /* global module:false */
-module.exports = function(grunt) {
-	var port = grunt.option('port') || 8000;
-	var base = grunt.option('base') || '.';
+module.exports = function ( grunt ) {
+	var port = grunt.option( 'port' ) || 8000;
+	var base = grunt.option( 'base' ) || '.';
 
 	// Project configuration
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+	grunt.initConfig( {
+		pkg: grunt.file.readJSON( 'package.json' ),
 		meta: {
-			banner:
-				'/*!\n' +
-				' * reveal.js <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)\n' +
-				' * http://lab.hakim.se/reveal-js\n' +
-				' * MIT licensed\n' +
-				' *\n' +
-				' * Copyright (C) 2015 Hakim El Hattab, http://hakim.se\n' +
-				' */'
+			banner: ''
 		},
 
 		qunit: {
@@ -38,15 +31,13 @@ module.exports = function(grunt) {
 				}
 			},
 			themes: {
-				files: [
-					{
-						expand: true,
-						cwd: 'css/theme/source',
-						src: ['*.scss'],
-						dest: 'css/theme',
-						ext: '.css'
-					}
-				]
+				files: [ {
+					expand: true,
+					cwd: 'css/theme/source',
+					src: [ '*.scss' ],
+					dest: 'css/theme',
+					ext: '.css'
+				} ]
 			}
 		},
 
@@ -128,11 +119,11 @@ module.exports = function(grunt) {
 				tasks: 'css-core'
 			},
 			html: {
-				files: [ 'index.html']
+				files: [ 'index.html' ]
 			}
 		}
 
-	});
+	} );
 
 	// Dependencies
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
